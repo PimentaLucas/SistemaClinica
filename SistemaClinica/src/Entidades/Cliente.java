@@ -7,42 +7,52 @@ import javax.persistence.Id;
 @Entity
 public class Cliente {
 
-		
+		@Column(name="NOME",length=150)
 		private String nome;
+		
+		@Id
+		@Column(name="CPF",length=11)
 		private String cpf_client;
+		
+		@Column(name="TELEFONE")
 		private String telefone;
+		
+		@Column(name="CELULAR")
 		private String celular;
+		
+		@Column(name="ENDERECO")
 		private String endereco;
+		
+		@Column(name="EMAIL")
 		private String email;
 		
 		
-		@Column(name="NOME",length=150)
+		
 		public String getNome() {
 			return nome;
 		}
 		
-		@Id
-		@Column(name="CPF",length=11)
+		
 		public String getCpf_client() {
 			return cpf_client;
 		}
 		
-		@Column(name="TELEFONE")
+		
 		public String getTelefone() {
 			return telefone;
 		}
 		
-		@Column(name="CELULAR")
+		
 		public String getCelular() {
 			return celular;
 		}
 		
-		@Column(name="ENDERECO")
+		
 		public String getEndereco() {
 			return endereco;
 		}
 		
-		@Column(name="EMAIL")
+		
 		public String getEmail() {
 			return email;
 		}
