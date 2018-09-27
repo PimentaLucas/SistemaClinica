@@ -33,7 +33,7 @@ public class Cliente {
 		}
 		
 		
-		public String getCpf_client() {
+		public String getCpfCliente() {
 			return cpfCliente;
 		}
 		
@@ -77,7 +77,7 @@ public class Cliente {
 			this.telefone = telefone;
 		}
 		
-		public void setCpf_client(String cpfCliente) {
+		public void setCpfCliente(String cpfCliente) {
 			this.cpfCliente = cpfCliente;
 		}
 }

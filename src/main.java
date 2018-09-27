@@ -7,7 +7,7 @@ public class main {
 			Cliente c = new Cliente();
 			
 			c.setNome("teste");
-			c.setCpf_client("teste");
+			c.setCpfCliente("teste");
 			c.setEmail("teste");
 			c.setCelular("teste");
 			c.setTelefone("teste");

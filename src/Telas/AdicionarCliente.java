@@ -1,5 +1,6 @@
 package Telas;
 
+import Servicos.ServicosCliente;
 
 /**
  *
@@ -13,6 +14,8 @@ public class AdicionarCliente extends javax.swing.JFrame {
     public AdicionarCliente() {
         initComponents();
     }
+    
+    ServicosCliente servico = new ServicosCliente();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -172,7 +175,16 @@ public class AdicionarCliente extends javax.swing.JFrame {
     }                                          
 
     private void adicionarClienteActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-        new TelaCliente().setVisible(true);
+        String nome = nomeCliente.getText();
+        String celular = celularCliente.getText();
+        String telefone = telefoneCliente.getText();
+        String cpf = cpfCliente.getText();
+        String email = emailCliente.getText();
+        String endereco = enderecoCliente.getText();
+        
+    	servico.inserirCliente(servico.criarCliente(nome, cpf, telefone, celular, email, endereco));
+        
+    	new TelaCliente().setVisible(true);
         this.dispose();
     }                                                
 
