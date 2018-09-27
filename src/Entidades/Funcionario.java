@@ -1,12 +1,27 @@
 package Entidades;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+
 public class Funcionario {
-		
+	
+	@Column(name="NOME") 
 	private String nome;
-	private String cpf_func;
+	
+	@Id
+	@Column(name="CPF_Func")
+	private String cpfFunc;
+	
+	@Column(name="TELEFONE")
 	private String telefone;
+	
+	@Column(name="CELULAR")
 	private String celular;
+	
+	@Column(name="EMAIL")
 	private String email;
+	
+	@Column(name="ENDERECO")
 	private String endereco;
 	
 	
@@ -17,10 +32,10 @@ public class Funcionario {
 		this.nome = nome;
 	}
 	public String getCpf_func() {
-		return cpf_func;
+		return cpfFunc;
 	}
 	public void setCpf_func(String cpf_func) {
-		this.cpf_func = cpf_func;
+		this.cpfFunc = cpf_func;
 	}
 	public String getTelefone() {
 		return telefone;

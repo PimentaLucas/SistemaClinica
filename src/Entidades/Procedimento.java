@@ -1,9 +1,23 @@
 package Entidades;
 
-public class Procedimento {
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+public class Procedimento {
+	
+		@Id
+		@GeneratedValue(strategy=GenerationType.AUTO)
+		private int id;
+		
+		@Column(name="NOME")
 		private String nome;
+		
+		@Column(name="DESCRICAO")
 		private String descricao;
+		
+		@Column(name="VALOR")
 		private float valor;
 		
 		

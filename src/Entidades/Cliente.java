@@ -11,8 +11,8 @@ public class Cliente {
 		private String nome;
 		
 		@Id
-		@Column(name="CPF",length=11)
-		private String cpf_client;
+		@Column(name="CPF_CLIENTE",length=11)
+		private String cpfCliente;
 		
 		@Column(name="TELEFONE")
 		private String telefone;
@@ -34,7 +34,7 @@ public class Cliente {
 		
 		
 		public String getCpf_client() {
-			return cpf_client;
+			return cpfCliente;
 		}
 		
 		
@@ -77,7 +77,7 @@ public class Cliente {
 			this.telefone = telefone;
 		}
 		
-		public void setCpf_client(String cpf_client) {
-			this.cpf_client = cpf_client;
+		public void setCpf_client(String cpfCliente) {
+			this.cpfCliente = cpfCliente;
 		}
 }
