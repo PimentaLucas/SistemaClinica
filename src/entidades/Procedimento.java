@@ -1,4 +1,4 @@
-package Entidades;
+package entidades;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -18,7 +18,7 @@ public class Procedimento {
 		private String descricao;
 		
 		@Column(name="VALOR")
-		private float valor;
+		private Float  valor;
 		
 		
 		public String getNome() {

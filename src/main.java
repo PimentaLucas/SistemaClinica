@@ -1,5 +1,5 @@
-import Entidades.Cliente;
-import Servicos.ServicosCliente;
+import entidades.Cliente;
+import servicosDaos.DaoCliente;
 
 public class main {
 
@@ -13,7 +13,7 @@ public class main {
 			c.setTelefone("teste");
 			c.setEndereco("teste");
 			
-			ServicosCliente sc = new ServicosCliente();
+			DaoCliente sc = new DaoCliente();
 			
 			sc.inserirCliente(c);
 		}
