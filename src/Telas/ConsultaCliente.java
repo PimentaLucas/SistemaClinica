@@ -1,10 +1,19 @@
 package Telas;
 
+import java.util.List;
+
+import javax.swing.table.DefaultTableModel;
+
+import entidades.Cliente;
+import servicos.ServicoCliente;
+
 public class ConsultaCliente extends javax.swing.JFrame {
 
     /**
      * Creates new form ConsultaCliente
      */
+	
+	ServicoCliente servico = new ServicoCliente();
     public ConsultaCliente() {
         initComponents();
     }
@@ -136,7 +145,32 @@ public class ConsultaCliente extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void pesquisaClienteActionPerformed(java.awt.event.ActionEvent evt) {                                                
-        // TODO add your handling code here:
+
+    	//Busca por CPF, utilizando por nome no momento
+//        	String busca = buscaCliente.getText();
+//        	Cliente c = new Cliente();
+//        	c = servico.buscaPorCPF(busca);
+//    		DefaultTableModel modeloTabela = (DefaultTableModel)tabelaCliente.getModel();
+//    		modeloTabela.addRow(new String[modeloTabela.getColumnCount()]);
+//    		tabelaCliente.setValueAt(c.getNome(), 0, 0);
+//        	tabelaCliente.setValueAt(c.getCelular(), 0, 1);
+//        	tabelaCliente.setValueAt(c.getTelefone(), 0, 2);
+       	
+        	
+    	
+    	String nome = buscaCliente.getText();
+    	List<Cliente> clientes = null;
+    	clientes = servico.buscaPorNome(nome);
+    	
+    	DefaultTableModel modeloTabela = (DefaultTableModel)tabelaCliente.getModel();
+    	
+    	for(int i = 0; i < clientes.size(); i++) {
+    		modeloTabela.addRow(new String[modeloTabela.getColumnCount()]);
+    		tabelaCliente.setValueAt(clientes.get(i).getNome(), i, 0);
+    		tabelaCliente.setValueAt(clientes.get(i).getCelular(), i, 1);
+    		tabelaCliente.setValueAt(clientes.get(i).getTelefone(), i, 2);
+    	}
+ 
     }                                               
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {                                            

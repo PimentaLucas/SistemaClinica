@@ -26,4 +26,6 @@ public abstract class Dao<T> {
 	protected void commit() {
 		em.getTransaction().commit();
 	}
+	
+	
 }

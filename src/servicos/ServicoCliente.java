@@ -1,5 +1,8 @@
 package servicos;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import entidades.Cliente;
 import servicosDaos.DaoCliente;
 
@@ -25,5 +28,26 @@ public class ServicoCliente {
 		return c;
 		
 	}
+	
+	public Cliente buscaPorCPF(String cpf) {
+		
+		Cliente c = new Cliente();
+		
+		c = dao.buscaPorID(cpf);
+		
+		return c;
+		
+	}
+	
+	public List<Cliente> buscaPorNome(String nome) {
+		
+		List<Cliente> clientes = null;
+		
+		clientes = dao.buscaPorNome(nome);
+		
+		return clientes;
+		
+	}
+	
 
 }
