@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence         http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
   <!-- Unidade de persistencia -->
@@ -6,11 +5,11 @@
     <!-- Implementação do JPA -->
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <!-- Lista de entidades -->
-    <class>Entidades.Cliente</class>
+    <class>entidades.Cliente</class>
     <properties>
       <!-- Propriedades JDBC -->
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://sql10.freemysqlhosting.net/sql10258931"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://sql10.freemysqlhosting.net:3306/sql10258931"/>
       <property name="javax.persistence.jdbc.user" value="sql10258931"/>
       <property name="javax.persistence.jdbc.password" value="lEGp54XaHH"/>
       <!-- Configurações específicas do Hibernate -->
@@ -20,3 +19,4 @@
       <property name="hibernate.format_sql" value="true"/>
     </properties>
   </persistence-unit>
+</persistence>
