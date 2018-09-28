@@ -1,15 +1,15 @@
-package Servicos;
+package servicosDaos;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class Dao<T> {
+public abstract class Dao<T> {
 
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("manager");
 	EntityManager em = emf.createEntityManager();	
 	
-	public void inserir(T entidade){
+	protected void inserir(T entidade){
 		
 		begin();
 		em.persist(entidade);
@@ -19,11 +19,11 @@ public class Dao<T> {
 	}
 	
 	
-	public void begin() {
+	protected void begin() {
 		em.getTransaction().begin();
 	}
 	
-	public void commit() {
+	protected void commit() {
 		em.getTransaction().commit();
 	}
 }

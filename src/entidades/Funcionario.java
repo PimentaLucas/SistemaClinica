@@ -1,4 +1,4 @@
-package Entidades;
+package entidades;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
@@ -31,11 +31,11 @@ public class Funcionario {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getCpf_func() {
+	public String getCpfFunc() {
 		return cpfFunc;
 	}
-	public void setCpf_func(String cpf_func) {
-		this.cpfFunc = cpf_func;
+	public void setCpfFunc(String cpfFunc) {
+		this.cpfFunc = cpfFunc;
 	}
 	public String getTelefone() {
 		return telefone;

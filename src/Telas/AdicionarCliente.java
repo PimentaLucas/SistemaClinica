@@ -1,6 +1,7 @@
 package Telas;
 
-import Servicos.ServicosCliente;
+import servicos.ServicoCliente;
+import servicosDaos.DaoCliente;
 
 /**
  *
@@ -15,7 +16,7 @@ public class AdicionarCliente extends javax.swing.JFrame {
         initComponents();
     }
     
-    ServicosCliente servico = new ServicosCliente();
+    ServicoCliente servico = new ServicoCliente();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,7 +44,7 @@ public class AdicionarCliente extends javax.swing.JFrame {
         emailCliente = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Ramira Estética Facial e Corporal");
+        setTitle("Ramira Estï¿½tica Facial e Corporal");
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
 
@@ -72,7 +73,7 @@ public class AdicionarCliente extends javax.swing.JFrame {
 
         jLabel3.setText("CPF");
 
-        jLabel4.setText("Endereço");
+        jLabel4.setText("Endereï¿½o");
 
         jLabel5.setText("Telefone");
 
@@ -181,7 +182,7 @@ public class AdicionarCliente extends javax.swing.JFrame {
         String cpf = cpfCliente.getText();
         String email = emailCliente.getText();
         String endereco = enderecoCliente.getText();
-        
+        //TODO Fazer chegagens aqui     
     	servico.inserirCliente(servico.criarCliente(nome, cpf, telefone, celular, email, endereco));
         
     	new TelaCliente().setVisible(true);
