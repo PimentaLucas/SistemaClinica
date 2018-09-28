@@ -1,10 +1,14 @@
 package Telas;
 
+import servicos.ServicoFuncionario;
+
 public class AdicionarFuncionario extends javax.swing.JFrame {
 
     /**
      * Creates new form AdicionarFuncionario
      */
+	
+		ServicoFuncionario servico = new ServicoFuncionario();
     public AdicionarFuncionario() {
         initComponents();
     }
@@ -165,7 +169,17 @@ public class AdicionarFuncionario extends javax.swing.JFrame {
     }                                                  
 
     private void adicionarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {                                                     
-        new TelaFuncionario().setVisible(true);
+    	String nome = nomeFuncionario.getText();
+        String celular = celularFuncionario.getText();
+        String telefone = telefoneFuncionario.getText();
+        String cpf = cpfFuncionario.getText();
+        String email = emailFuncionario.getText();
+        String endereco = enderecoFuncionario.getText();
+        //TODO Fazer chegagens aqui     
+    	servico.inserirFuncionario(servico.criarFuncionario(nome, cpf, telefone, celular, email, endereco));
+    	
+    	
+    	new TelaFuncionario().setVisible(true);
             this.dispose();
     }                                                    
 
