@@ -1,11 +1,15 @@
 package Telas;
 
+import servicos.ServicoProcedimento;
+
 public class AdicionarProcedimento extends javax.swing.JFrame {
 
     /** Creates new form AdicionarProcedimento */
     public AdicionarProcedimento() {
         initComponents();
     }
+    
+    ServicoProcedimento servico = new ServicoProcedimento();
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -124,7 +128,13 @@ public class AdicionarProcedimento extends javax.swing.JFrame {
     }                                                
 
     private void adicionarProcedimentoActionPerformed(java.awt.event.ActionEvent evt) {                                                      
-        new TelaProcedimentos().setVisible(true);
+        String nome = nomeProcedimento.getText();
+        String valor = valorProcedimento.getText();
+        String descricao = descProcedimento.getText();
+        
+        servico.inserirProcedimento(servico.criarProcedimento(nome, valor, descricao));
+    	
+    	new TelaProcedimentos().setVisible(true);
         this.dispose();
     }                                                     
 
