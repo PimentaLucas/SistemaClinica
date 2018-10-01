@@ -8,17 +8,17 @@
     <class>entidades.Cliente</class>
     <class>entidades.Funcionario</class>
     <class>entidades.Procedimento</class>
-    <properties>
-      <!-- Propriedades JDBC -->
-      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://sql10.freemysqlhosting.net:3306/sql10258931"/>
-      <property name="javax.persistence.jdbc.user" value="sql10258931"/>
-      <property name="javax.persistence.jdbc.password" value="lEGp54XaHH"/>
-      <!-- Configurações específicas do Hibernate -->
-      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
-      <property name="hibernate.hbm2ddl.auto" value="update"/>
-      <property name="hibernate.show_sql" value="true"/>
-      <property name="hibernate.format_sql" value="true"/>
-    </properties>
-  </persistence-unit>
+         <properties>
+            <property name="javax.persistence.jdbc.driver_class" value="net.sourceforge.jtds.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:jtds:sqlserver://sistemaclinica.database.windows.net:1433/SistemaClinica"/>
+            <property name="javax.persistence.jdbc.user" value="netswork@sistemaclinica"/>
+            <property name="javax.persistence.jdbc.password" value="Ramalu16@"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect"/>
+
+
+			<!-- Properties for Hibernate -->			
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+        </properties>
+    </persistence-unit>
 </persistence>
