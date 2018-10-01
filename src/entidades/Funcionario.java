@@ -11,7 +11,7 @@ public class Funcionario {
 	private String nome;
 	
 	@Id
-	@Column(name="CPF_Func")
+	@Column(name="CPF_FUNC")
 	private String cpfFunc;
 	
 	@Column(name="TELEFONE")
