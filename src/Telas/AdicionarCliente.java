@@ -1,7 +1,16 @@
 package Telas;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
+import javax.swing.LayoutStyle.ComponentPlacement;
+
 import servicos.ServicoCliente;
-import servicosDaos.DaoCliente;
 
 /**
  *
@@ -51,23 +60,40 @@ public class AdicionarCliente extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Adicionar Cliente");
+        
+        JButton btnVoltar = new JButton("Voltar");
+        btnVoltar.setForeground(new Color(255, 255, 255));
+        btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
+        btnVoltar.addActionListener(new ActionListener() {
+        	
+        	public void actionPerformed(java.awt.event.ActionEvent evt) {
+        		new TelaCliente().setVisible(true);
+                dispose();
+        
+        	}
+        });
+        btnVoltar.setBackground(new Color(240, 128, 128));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        	jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(jPanel1Layout.createSequentialGroup()
+        			.addContainerGap(190, Short.MAX_VALUE)
+        			.addComponent(jLabel1)
+        			.addPreferredGap(ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+        			.addComponent(btnVoltar))
         );
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        	jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(jPanel1Layout.createSequentialGroup()
+        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(jPanel1Layout.createSequentialGroup()
+        					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        					.addComponent(jLabel1))
+        				.addComponent(btnVoltar))
+        			.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+        jPanel1.setLayout(jPanel1Layout);
 
         jLabel2.setText("Nome");
 
@@ -173,7 +199,9 @@ public class AdicionarCliente extends javax.swing.JFrame {
 
     private void cpfClienteActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
-    }                                          
+    }
+    
+  
 
     private void adicionarClienteActionPerformed(java.awt.event.ActionEvent evt) {                                                 
         String nome = nomeCliente.getText();
@@ -240,5 +268,4 @@ public class AdicionarCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nomeCliente;
     private javax.swing.JTextField telefoneCliente;
-    // End of variables declaration                   
 }

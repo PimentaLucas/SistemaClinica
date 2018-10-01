@@ -1,6 +1,14 @@
 package Telas;
 
 import servicos.ServicoProcedimento;
+import javax.swing.JButton;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.GroupLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AdicionarProcedimento extends javax.swing.JFrame {
 
@@ -38,23 +46,39 @@ public class AdicionarProcedimento extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Adicionar Procedimento");
+        
+        btnVoltar = new JButton("Voltar");
+        btnVoltar.addActionListener(new ActionListener() {
+        	public void actionPerformed(java.awt.event.ActionEvent evt) {
+        		new TelaProcedimentos().setVisible(true);
+                dispose();
+        
+        	}
+        });
+        btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
+        btnVoltar.setForeground(new Color(255, 255, 255));
+        btnVoltar.setBackground(new Color(240, 128, 128));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(158, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap(159, Short.MAX_VALUE))
+        	jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(jPanel1Layout.createSequentialGroup()
+        			.addContainerGap(158, Short.MAX_VALUE)
+        			.addComponent(jLabel1)
+        			.addPreferredGap(ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+        			.addComponent(btnVoltar))
         );
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap(25, Short.MAX_VALUE))
+        	jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(jPanel1Layout.createSequentialGroup()
+        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(jPanel1Layout.createSequentialGroup()
+        					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        					.addComponent(jLabel1))
+        				.addComponent(btnVoltar))
+        			.addContainerGap(25, Short.MAX_VALUE))
         );
+        jPanel1.setLayout(jPanel1Layout);
 
         jLabel2.setText("Nome");
 
@@ -183,6 +207,7 @@ public class AdicionarProcedimento extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nomeProcedimento;
     private javax.swing.JTextField valorProcedimento;
+    private JButton btnVoltar;
     // End of variables declaration                   
 
 }
