@@ -1,15 +1,18 @@
 package entidades;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Procedimento {
 	
 		@Id
-		@GeneratedValue(strategy=GenerationType.AUTO)
-		private int id;
+		@GeneratedValue(strategy=GenerationType.IDENTITY)
+		@Column(name="PROCEDIMENTO_ID")
+		private int procedimentId;
 		
 		@Column(name="NOME")
 		private String nome;
