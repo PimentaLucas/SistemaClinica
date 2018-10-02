@@ -2,7 +2,6 @@ package Telas;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.GroupLayout;
@@ -44,7 +43,7 @@ public class AdicionarCliente extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         nomeCliente = new javax.swing.JTextField();
-        cpfCliente = new javax.swing.JTextField();
+        cpfCliente = new JTextFieldNumeros();
         enderecoCliente = new javax.swing.JTextField();
         telefoneCliente = new javax.swing.JTextField();
         celularCliente = new javax.swing.JTextField();
@@ -53,7 +52,7 @@ public class AdicionarCliente extends javax.swing.JFrame {
         emailCliente = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Ramira Estï¿½tica Facial e Corporal");
+        setTitle("Ramira Estética Facial e Corporal");
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
 
@@ -99,7 +98,7 @@ public class AdicionarCliente extends javax.swing.JFrame {
 
         jLabel3.setText("CPF");
 
-        jLabel4.setText("Endereï¿½o");
+        jLabel4.setText("Endereço");
 
         jLabel5.setText("Telefone");
 
@@ -210,11 +209,20 @@ public class AdicionarCliente extends javax.swing.JFrame {
         String cpf = cpfCliente.getText();
         String email = emailCliente.getText();
         String endereco = enderecoCliente.getText();
-        //TODO Fazer chegagens aqui     
-    	servico.inserirCliente(servico.criarCliente(nome, cpf, telefone, celular, email, endereco));
+        if(servico.verificarCPF(cpf)) {
+           
+         servico.inserirCliente(servico.criarCliente(nome, cpf, telefone, celular, email, endereco));
+         new TelaCliente().setVisible(true);
+         this.dispose();
+             
+        }
         
-    	new TelaCliente().setVisible(true);
-        this.dispose();
+        else {
+        	new NotificarCPF().setVisible(true);
+        }
+        
+        
+        
     }                                                
 
     /**

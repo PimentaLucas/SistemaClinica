@@ -35,7 +35,7 @@ public class AdicionarFuncionario extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         nomeFuncionario = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        cpfFuncionario = new javax.swing.JTextField();
+        cpfFuncionario = new JTextFieldNumeros();
         jLabel4 = new javax.swing.JLabel();
         enderecoFuncionario = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -199,12 +199,18 @@ public class AdicionarFuncionario extends javax.swing.JFrame {
         String cpf = cpfFuncionario.getText();
         String email = emailFuncionario.getText();
         String endereco = enderecoFuncionario.getText();
-        //TODO Fazer chegagens aqui     
-    	servico.inserirFuncionario(servico.criarFuncionario(nome, cpf, telefone, celular, email, endereco));
-    	
-    	
-    	new TelaFuncionario().setVisible(true);
+        if(servico.verificarCPF(cpf)) {
+            
+            servico.inserirFuncionario(servico.criarFuncionario(nome, cpf, telefone, celular, email, endereco));
+            
+            new TelaFuncionario().setVisible(true);
             this.dispose();
+                
+           }
+           
+           else {
+           	new NotificarCPF().setVisible(true);
+           }
     }                                                    
 
     /**
