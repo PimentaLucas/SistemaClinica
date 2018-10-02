@@ -1,10 +1,15 @@
 package entidades;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Procedimento {
@@ -22,6 +27,10 @@ public class Procedimento {
 		
 		@Column(name="VALOR")
 		private Float  valor;
+		
+		@OneToMany(mappedBy = "atendimento_id", targetEntity = Atendimento.class, fetch = FetchType.LAZY,
+				cascade = CascadeType.ALL)
+		List<Atendimento> atendimentos;
 		
 		
 		public String getNome() {

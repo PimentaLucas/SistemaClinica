@@ -1,9 +1,33 @@
 package entidades;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 public class Atendimento {
 	
-	private String cliente;
-	private String funcionario;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="ATENDIMENTO_ID")
+	private int atendimentoId;
+	
+	@Column(name="DATA")
+	private String data;
+	
+	@ManyToOne
+	@JoinColumn(name="CPF_CLIENTE")
+	private Cliente cliente;
+	
+	
+	@ManyToOne
+	@JoinColumn(name="CPF_FUNC")
+	private Funcionario funcionario;
+	
+	@ManyToOne
+	@JoinColumn(name="PROCEDIMENTO_ID")
 	private String procedimento;
 	
 	
@@ -14,16 +38,16 @@ public class Atendimento {
 	public void setProcedimento(String procedimento) {
 		this.procedimento = procedimento;
 	}
-	public String getFuncionario() {
+	public Funcionario getFuncionario() {
 		return funcionario;
 	}
-	public void setFuncionario(String funcionario) {
+	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
 	}
-	public String getCliente() {
+	public Cliente getCliente() {
 		return cliente;
 	}
-	public void setCliente(String cliente) {
+	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
 }

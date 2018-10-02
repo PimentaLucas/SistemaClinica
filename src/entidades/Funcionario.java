@@ -1,8 +1,13 @@
 package entidades;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Funcionario {
@@ -25,6 +30,10 @@ public class Funcionario {
 	
 	@Column(name="ENDERECO")
 	private String endereco;
+	
+	@OneToMany(mappedBy = "atendimento_id", targetEntity = Atendimento.class, fetch = FetchType.LAZY,
+			cascade = CascadeType.ALL)
+	List<Atendimento> atendimentos;
 	
 	
 	public String getNome() {
