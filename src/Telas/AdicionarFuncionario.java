@@ -35,7 +35,7 @@ public class AdicionarFuncionario extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         nomeFuncionario = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        cpfFuncionario = new JTextFieldNumeros();
+        cpfFuncionario = new JTextFieldCPF();
         jLabel4 = new javax.swing.JLabel();
         enderecoFuncionario = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();

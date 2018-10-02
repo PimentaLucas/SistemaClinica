@@ -4,10 +4,10 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.JTextField;
 
-public final class JTextFieldNumeros extends JTextField {
+public final class JTextFieldCPF extends JTextField {
 private int maximoCaracteres=-1;// definição de -1 
 // como  valor normal de um textfield sem limite de caracters
-	public JTextFieldNumeros() {
+	public JTextFieldCPF() {
 	super();
         addKeyListener(new java.awt.event.KeyAdapter() {
             @Override
