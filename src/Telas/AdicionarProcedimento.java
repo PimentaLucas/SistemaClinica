@@ -33,9 +33,9 @@ public class AdicionarProcedimento extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        nomeProcedimento = new javax.swing.JTextField();
+        nomeProcedimento = new JTextFieldLetras();
         valorProcedimento = new javax.swing.JTextField();
-        descProcedimento = new javax.swing.JTextField();
+        descProcedimento = new JTextFieldLetras();
         adicionarProcedimento = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);

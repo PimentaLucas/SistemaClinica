@@ -4,11 +4,11 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.JTextField;
 
-public final class JTextFieldCPF extends JTextField {
+public final class JTextFieldLetras extends JTextField {
 	private int maximoCaracteres = -1;// definição de -1
 	// como valor normal de um textfield sem limite de caracters
 
-	public JTextFieldCPF() {
+	public JTextFieldLetras() {
 		super();
 		addKeyListener(new java.awt.event.KeyAdapter() {
 			@Override
@@ -21,7 +21,7 @@ public final class JTextFieldCPF extends JTextField {
 			public void keyTyped(java.awt.event.KeyEvent e) {
 				int k = e.getKeyChar();
 
-				if (getText().length() <= 11 - 1) {
+				if (getText().length() <= 150 - 1) {
 					// deixe passar
 				} else {
 					e.setKeyChar((char) KeyEvent.VK_CLEAR);
@@ -33,7 +33,8 @@ public final class JTextFieldCPF extends JTextField {
 
 	private void jTextFieldKeyTyped(KeyEvent evt) {
 
-		String caracteres = "0987654321";// lista de caracters que não devem ser aceitos
+		String caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";// lista de caracters que não devem
+																					// ser aceitos
 		if (!caracteres.contains(evt.getKeyChar() + "")) {// se o caracter que gerou o evento estiver não estiver na
 															// lista
 			evt.consume();// aciona esse propriedade para eliminar a ação do evento

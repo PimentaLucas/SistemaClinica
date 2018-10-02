@@ -1,14 +1,20 @@
 package Telas;
 
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
 import java.awt.event.KeyEvent;
 
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
-public final class JTextFieldCPF extends JTextField {
+public final class JTextFieldTelefone extends JTextField {
+
 	private int maximoCaracteres = -1;// definição de -1
 	// como valor normal de um textfield sem limite de caracters
 
-	public JTextFieldCPF() {
+	public JTextFieldTelefone() {
 		super();
 		addKeyListener(new java.awt.event.KeyAdapter() {
 			@Override
@@ -21,7 +27,7 @@ public final class JTextFieldCPF extends JTextField {
 			public void keyTyped(java.awt.event.KeyEvent e) {
 				int k = e.getKeyChar();
 
-				if (getText().length() <= 11 - 1) {
+				if (getText().length() <= 8 - 1) {
 					// deixe passar
 				} else {
 					e.setKeyChar((char) KeyEvent.VK_CLEAR);

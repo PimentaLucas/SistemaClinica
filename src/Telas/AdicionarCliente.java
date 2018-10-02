@@ -42,10 +42,10 @@ public class AdicionarCliente extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        nomeCliente = new javax.swing.JTextField();
+        nomeCliente = new JTextFieldLetras();
         cpfCliente = new JTextFieldCPF();
         enderecoCliente = new javax.swing.JTextField();
-        telefoneCliente = new javax.swing.JTextField();
+        telefoneCliente = new JTextFieldTelefone();
         celularCliente = new javax.swing.JTextField();
         adicionarCliente = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();

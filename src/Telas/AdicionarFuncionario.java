@@ -33,13 +33,13 @@ public class AdicionarFuncionario extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        nomeFuncionario = new javax.swing.JTextField();
+        nomeFuncionario = new JTextFieldLetras();
         jLabel3 = new javax.swing.JLabel();
         cpfFuncionario = new JTextFieldCPF();
         jLabel4 = new javax.swing.JLabel();
         enderecoFuncionario = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        telefoneFuncionario = new javax.swing.JTextField();
+        telefoneFuncionario = new JTextFieldTelefone();
         jLabel6 = new javax.swing.JLabel();
         celularFuncionario = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
