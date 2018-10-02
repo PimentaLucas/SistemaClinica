@@ -16,7 +16,7 @@ public class DaoProcedimento extends Dao<Procedimento> {
 		
 		List<Procedimento> procedimentos = null;
 		
-		procedimentos = em.createQuery("from Procedimento p wherep.nome LIKE :nome").setParameter("nome",nome + "%").getResultList();
+		procedimentos = em.createQuery("from Procedimento p where p.nome LIKE :nome").setParameter("nome",nome + "%").getResultList();
 		
 		return procedimentos;
 		
