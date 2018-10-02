@@ -1,5 +1,8 @@
 package servicos;
 
+import java.util.List;
+
+import entidades.Cliente;
 import entidades.Procedimento;
 import servicosDaos.DaoProcedimento;
 
@@ -27,6 +30,16 @@ public class ServicoProcedimento {
 			
 			
 			return p;
+			
+		}
+		
+		public List<Procedimento> buscaPorNome(String nome) {
+			
+			List<Procedimento> procedimentos = null;
+			
+			procedimentos = dao.buscaPorNome(nome);
+			
+			return procedimentos;
 			
 		}
 		

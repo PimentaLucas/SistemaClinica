@@ -1,8 +1,10 @@
 package servicos;
 
 import java.util.InputMismatchException;
+import java.util.List;
 
 import entidades.Funcionario;
+import entidades.Procedimento;
 import servicosDaos.DaoFuncionario;
 
 public class ServicoFuncionario {
@@ -86,6 +88,17 @@ public class ServicoFuncionario {
                } catch (InputMismatchException erro) {
                return(false);
            }
+	}
+	
+	
+	public List<Funcionario> buscaPorNome(String nome) {
+		
+		List<Funcionario> funcionarios = null;
+		
+		funcionarios = dao.buscaPorNome(nome);
+		
+		return funcionarios;
+		
 	}
 
 }

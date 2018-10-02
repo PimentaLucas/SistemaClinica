@@ -90,11 +90,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
 
         tabelaCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
+                            },
             new String [] {
                 "Nome", "Telefone", "Celular"
             }
