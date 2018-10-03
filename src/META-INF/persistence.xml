@@ -11,7 +11,10 @@
     <class>entidade.Atendimento</class>
          <properties>
             <property name="javax.persistence.jdbc.driver_class" value="net.sourceforge.jtds.jdbc.Driver"/>
+<<<<<<< HEAD
             <property name="javax.persistence.jdbc.url" value="jdbc:jtds:sqlserver://sistemaclinica.database.windows.net:1433/SistemaClinica"/>
+=======
+
             <property name="javax.persistence.jdbc.user" value=""/>
             <property name="javax.persistence.jdbc.password" value=""/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect"/>
