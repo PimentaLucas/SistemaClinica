@@ -49,8 +49,7 @@ public class ServicoCliente {
 		
 		return clientes;
 		
-	}
-	
+	}	
 	
 	public boolean verificarCPF(String CPF) {
 		

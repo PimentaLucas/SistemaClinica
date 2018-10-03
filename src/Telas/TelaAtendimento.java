@@ -1,21 +1,28 @@
 package Telas;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.util.List;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JTable;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 import entidades.Cliente;
 import servicos.ServicoAtendimento;
 import servicos.ServicoCliente;
+import servicos.ServicoFuncionario;
+import servicos.ServicoProcedimento;
 
 public class TelaAtendimento extends javax.swing.JFrame {
 
 	ServicoAtendimento servico = new ServicoAtendimento();
 	ServicoCliente cliente = new ServicoCliente();
+	ServicoFuncionario func = new ServicoFuncionario();
+	ServicoProcedimento proc = new ServicoProcedimento();
+	
     /**
      * Creates new form TelaAtendimento
      */
@@ -92,14 +99,15 @@ public class TelaAtendimento extends javax.swing.JFrame {
         buscaCliente.setForeground(new java.awt.Color(255, 255, 255));
         buscaCliente.setText("Buscar");
 
-        procAtendimento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        String[] listaproc = servico.listaProcedimentos();
+        procAtendimento.setModel(new javax.swing.DefaultComboBoxModel<>(listaproc));
 
         jLabel3.setText("Procedimento");
 
         jLabel4.setText("Funcionário");
 
-        String[] lista = servico.listaFuncionarios();
-        funcionarioAtendimento.setModel(new javax.swing.DefaultComboBoxModel<>(lista));
+        String[] listafunc = servico.listaFuncionarios();
+        funcionarioAtendimento.setModel(new javax.swing.DefaultComboBoxModel<>(listafunc));
 
         
         
@@ -109,7 +117,12 @@ public class TelaAtendimento extends javax.swing.JFrame {
         registrarAtendimento.setText("Registrar Atendimento");
         registrarAtendimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registrarAtendimentoActionPerformed(evt);
+                try {
+					registrarAtendimentoActionPerformed(evt);
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
 
@@ -152,6 +165,7 @@ public class TelaAtendimento extends javax.swing.JFrame {
         table = new JTable();
         
         tabelaCliente = new JTable();
+        tabelaCliente.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         tabelaCliente.setModel(new DefaultTableModel(
         	new Object[][] {
         	},
@@ -204,10 +218,8 @@ public class TelaAtendimento extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>                        
 
-    private void registrarAtendimentoActionPerformed(java.awt.event.ActionEvent evt) {                                                     
-        new TelaPrincipal().setVisible(true);
-        this.dispose();
-    }                                                    
+    private void registrarAtendimentoActionPerformed(java.awt.event.ActionEvent evt) throws ParseException {
+    }                                                 
 
     /**
      * @param args the command line arguments

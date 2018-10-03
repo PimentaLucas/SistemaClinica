@@ -33,7 +33,5 @@ public class DaoCliente extends Dao<Cliente> {
 		return clientes;
 	}
 	
-	
-	
 
 }
