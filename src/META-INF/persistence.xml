@@ -11,9 +11,9 @@
     <class>entidade.Atendimento</class>
          <properties>
             <property name="javax.persistence.jdbc.driver_class" value="net.sourceforge.jtds.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:jtds:sqlserver://sistemaclinica.database.windows.net:1433/SistemaClinica"/>
-            <property name="javax.persistence.jdbc.user" value="netswork@sistemaclinica"/>
-            <property name="javax.persistence.jdbc.password" value="Ramalu16@"/>
+            <property name="javax.persistence.jdbc.url" value=""/>
+            <property name="javax.persistence.jdbc.user" value=""/>
+            <property name="javax.persistence.jdbc.password" value=""/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect"/>
 
 
