@@ -22,6 +22,15 @@ public List<Funcionario> buscaPorNome(String nome){
 		
 		return funcionarios;
 	}
+
+public List<Funcionario> buscaTodos(){
+	
+	List<Funcionario> funcionarios = null;
+	
+	funcionarios = em.createQuery("from Funcionario f").getResultList();
+	
+	return funcionarios;
+}
 	
 	
 	

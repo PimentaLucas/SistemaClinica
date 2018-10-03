@@ -32,7 +32,7 @@ public class Cliente {
 		@Column(name="EMAIL")
 		private String email;
 		
-		@OneToMany(mappedBy = "atendimento_id", targetEntity = Atendimento.class, fetch = FetchType.LAZY,
+		@OneToMany(mappedBy = "atendimentoId", targetEntity = Atendimento.class, fetch = FetchType.LAZY,
 				cascade = CascadeType.ALL)
 		List<Atendimento> atendimentos;
 		

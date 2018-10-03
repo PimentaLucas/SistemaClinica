@@ -28,7 +28,7 @@ public class Procedimento {
 		@Column(name="VALOR")
 		private Float  valor;
 		
-		@OneToMany(mappedBy = "atendimento_id", targetEntity = Atendimento.class, fetch = FetchType.LAZY,
+		@OneToMany(mappedBy = "atendimentoId", targetEntity = Atendimento.class, fetch = FetchType.LAZY,
 				cascade = CascadeType.ALL)
 		List<Atendimento> atendimentos;
 		

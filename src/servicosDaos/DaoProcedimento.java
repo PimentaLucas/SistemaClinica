@@ -2,6 +2,7 @@ package servicosDaos;
 
 import java.util.List;
 
+import entidades.Funcionario;
 import entidades.Procedimento;
 
 public class DaoProcedimento extends Dao<Procedimento> {
@@ -20,6 +21,16 @@ public class DaoProcedimento extends Dao<Procedimento> {
 		
 		return procedimentos;
 		
+	}
+	
+	
+	public List<Procedimento> buscaTodos(){
+		
+		List<Procedimento> procedimentos = null;
+		
+		procedimentos = em.createQuery("from Procedimento p").getResultList();
+		
+		return procedimentos;
 	}
 	
 	

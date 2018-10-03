@@ -1,12 +1,18 @@
 package entidades;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+@Entity
 public class Atendimento {
 	
 	@Id
@@ -28,15 +34,26 @@ public class Atendimento {
 	
 	@ManyToOne
 	@JoinColumn(name="PROCEDIMENTO_ID")
-	private String procedimento;
+	private Procedimento procedimento;
 	
 	
 	
-	public String getProcedimento() {
+	public Procedimento getProcedimento() {
 		return procedimento;
 	}
-	public void setProcedimento(String procedimento) {
+	public void setProcedimento(Procedimento procedimento) {
 		this.procedimento = procedimento;
+	}
+	public String getData() {
+		return data;
+	}
+	public void setData(String data) throws ParseException {
+		
+		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        Date parsed = format.parse(data);
+        java.sql.Date sql = new java.sql.Date(parsed.getTime());
+        
+		this.data = data;
 	}
 	public Funcionario getFuncionario() {
 		return funcionario;

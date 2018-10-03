@@ -8,6 +8,7 @@
     <class>entidades.Cliente</class>
     <class>entidades.Funcionario</class>
     <class>entidades.Procedimento</class>
+    <class>entidade.Atendimento</class>
          <properties>
             <property name="javax.persistence.jdbc.driver_class" value="net.sourceforge.jtds.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:jtds:sqlserver://sistemaclinica.database.windows.net:1433/SistemaClinica"/>
