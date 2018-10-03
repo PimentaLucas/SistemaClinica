@@ -15,6 +15,10 @@ import servicos.ServicoAtendimento;
 import servicos.ServicoCliente;
 import servicos.ServicoFuncionario;
 import servicos.ServicoProcedimento;
+import javax.swing.JButton;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
 
 public class TelaAtendimento extends javax.swing.JFrame {
 
@@ -74,23 +78,38 @@ public class TelaAtendimento extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Novo atendimento");
+        
+        JButton btnVoltar = new JButton("Voltar");
+        btnVoltar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		new TelaPrincipal().setVisible(true);
+        		dispose();
+        	}
+        });
+        btnVoltar.setForeground(new Color(255, 255, 255));
+        btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 12));
+        btnVoltar.setBackground(new Color(250, 128, 114));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(247, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap(247, Short.MAX_VALUE))
+        	jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(jPanel1Layout.createSequentialGroup()
+        			.addContainerGap(247, Short.MAX_VALUE)
+        			.addComponent(jLabel1)
+        			.addPreferredGap(ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+        			.addComponent(btnVoltar))
         );
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap(25, Short.MAX_VALUE))
+        	jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(jPanel1Layout.createSequentialGroup()
+        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(jPanel1Layout.createSequentialGroup()
+        					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        					.addComponent(jLabel1))
+        				.addComponent(btnVoltar))
+        			.addContainerGap(25, Short.MAX_VALUE))
         );
+        jPanel1.setLayout(jPanel1Layout);
 
         jLabel2.setText("Cliente");
 
