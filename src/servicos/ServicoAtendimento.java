@@ -1,7 +1,10 @@
 package servicos;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import entidades.Atendimento;
@@ -34,35 +37,53 @@ public class ServicoAtendimento {
 
 	}
 
-	public String[] listaFuncionarios() {
-		ArrayList<String> lista = new ArrayList<String>();
+	public List<Funcionario> listaFuncionarios() {
+
 		List<Funcionario> funcionarios = null;
 		funcionarios = funcionario.buscaTodos();
+
+		return funcionarios;
+	}
+
+	public List<Procedimento> listaProcedimentos() {
+
+		List<Procedimento> procedimentos = null;
+
+		procedimentos = proc.buscaTodos();
+
+		return procedimentos;
+
+	}
+
+	public ArrayList<String> nomesFuncionarios(List<Funcionario> funcionarios) {
+		ArrayList<String> lista = new ArrayList<String>();
 
 		for (int i = 0; i < funcionarios.size(); i++) {
 
 			lista.add(funcionarios.get(i).getNome());
 
 		}
-		String[] nomes = lista.toArray(new String[lista.size()]);
-
-		return nomes;
+		
+		return lista;
 	}
 
-	public String[] listaProcedimentos() {
+	public ArrayList<String> nomesProcedimentos(List<Procedimento> procedimentos) {
 		ArrayList<String> lista = new ArrayList<String>();
-		List<Procedimento> procedimentos = null;
-
-		procedimentos = proc.buscaTodos();
 
 		for (int i = 0; i < procedimentos.size(); i++) {
 
 			lista.add(procedimentos.get(i).getNome());
 
 		}
-		String[] nomes = lista.toArray(new String[lista.size()]);
 		
-		return nomes;
-
+		return lista;
 	}
+	
+	public String pegaDataAtual() {
+		Date data = new Date(System.currentTimeMillis());  
+		SimpleDateFormat formatarDate = new SimpleDateFormat("dd/MM/yyyy"); 
+		return (formatarDate.format(data));
+	}
+	
+	
 }
