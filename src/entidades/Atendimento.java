@@ -67,4 +67,10 @@ public class Atendimento {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+	public int getAtendimentoId() {
+		return atendimentoId;
+	}
+	public void setAtendimentoId(int atendimentoId) {
+		this.atendimentoId = atendimentoId;
+	}
 }

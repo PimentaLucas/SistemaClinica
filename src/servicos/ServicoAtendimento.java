@@ -86,4 +86,10 @@ public class ServicoAtendimento {
 	}
 	
 	
+	
+	public List<Atendimento> buscarTodos(){
+		return dao.buscarTodos();
+	}
+	
+	
 }

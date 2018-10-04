@@ -123,6 +123,7 @@ public class AdicionarCliente extends javax.swing.JFrame {
         adicionarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adicionarClienteActionPerformed(evt);
+                new NotificarInsercao().setVisible(true);
             }
         });
 

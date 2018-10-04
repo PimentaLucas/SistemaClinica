@@ -13,7 +13,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class NotificarAtendimento extends JFrame {
+public class NotificarInsercao extends JFrame {
 
 	private JPanel contentPane;
 
@@ -24,7 +24,7 @@ public class NotificarAtendimento extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					NotificarAtendimento frame = new NotificarAtendimento();
+					NotificarInsercao frame = new NotificarInsercao();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,9 +36,9 @@ public class NotificarAtendimento extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public NotificarAtendimento() {
+	public NotificarInsercao() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 217, 150);
+		setBounds(100, 100, 227, 151);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(240, 128, 128));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -46,14 +46,14 @@ public class NotificarAtendimento extends JFrame {
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
 		
-		JLabel lblAtendimentoRegistrado = new JLabel("Atendimento Registrado!");
-		lblAtendimentoRegistrado.setForeground(new Color(255, 255, 255));
-		lblAtendimentoRegistrado.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblAtendimentoRegistrado.setBounds(21, 48, 170, 14);
-		contentPane.add(lblAtendimentoRegistrado);
+		JLabel lblInseroRealizada = new JLabel("Inser\u00E7\u00E3o Realizada!!!");
+		lblInseroRealizada.setForeground(new Color(255, 255, 255));
+		lblInseroRealizada.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblInseroRealizada.setBounds(39, 38, 133, 14);
+		contentPane.add(lblInseroRealizada);
 		
 		JButton btnNewButton = new JButton("OK");
-		btnNewButton.setBackground(new Color(250, 128, 114));
+		btnNewButton.setBackground(new Color(240, 128, 128));
 		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton.addActionListener(new ActionListener() {
@@ -61,7 +61,7 @@ public class NotificarAtendimento extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton.setBounds(54, 73, 89, 23);
+		btnNewButton.setBounds(58, 78, 89, 23);
 		contentPane.add(btnNewButton);
 	}
 }

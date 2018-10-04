@@ -1,10 +1,18 @@
 package Telas;
+import java.util.List;
+
+import javax.swing.table.DefaultTableModel;
+
+import entidades.Atendimento;
+import servicos.ServicoAtendimento;
 
 public class ResumoAtendimentos extends javax.swing.JFrame {
 
     /**
      * Creates new form ResumoAtendimentos
      */
+	
+	ServicoAtendimento servico = new ServicoAtendimento();
     public ResumoAtendimentos() {
         initComponents();
     }
@@ -26,7 +34,7 @@ public class ResumoAtendimentos extends javax.swing.JFrame {
         tabelaAtendimentos = new javax.swing.JTable();
         filtroBusca = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        filtrarAtendimentos = new javax.swing.JButton();
+        buscarAtendimentos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,34 +75,22 @@ public class ResumoAtendimentos extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        tabelaAtendimentos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Numero", "Cliente", "Procedimento", "Funcionário"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        tabelaAtendimentos.setModel(new DefaultTableModel(
+        	new Object[][] {
+        	},
+        	new String[] {
+        		"Numero", "Cliente", "Procedimento", "Funcion\u00E1rio", "Data"
+        	}
+        ));
         jScrollPane1.setViewportView(tabelaAtendimentos);
 
         jLabel2.setText("Filtro");
 
-        filtrarAtendimentos.setBackground(new java.awt.Color(255, 153, 153));
-        filtrarAtendimentos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        filtrarAtendimentos.setForeground(new java.awt.Color(255, 255, 255));
-        filtrarAtendimentos.setText("Filtrar");
-        filtrarAtendimentos.addActionListener(new java.awt.event.ActionListener() {
+        buscarAtendimentos.setBackground(new java.awt.Color(255, 153, 153));
+        buscarAtendimentos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        buscarAtendimentos.setForeground(new java.awt.Color(255, 255, 255));
+        buscarAtendimentos.setText("Filtrar");
+        buscarAtendimentos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 filtrarAtendimentosActionPerformed(evt);
             }
@@ -112,7 +108,7 @@ public class ResumoAtendimentos extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(filtroBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(filtrarAtendimentos))
+                                .addComponent(buscarAtendimentos))
                             .addComponent(jLabel2))
                         .addGap(0, 147, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -127,7 +123,7 @@ public class ResumoAtendimentos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(filtroBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(filtrarAtendimentos))
+                    .addComponent(buscarAtendimentos))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -153,7 +149,7 @@ public class ResumoAtendimentos extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void filtrarAtendimentosActionPerformed(java.awt.event.ActionEvent evt) {                                                    
-        // TODO add your handling code here:
+        	mostrarAtendimentos();
     }                                                   
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {                                            
@@ -198,7 +194,7 @@ public class ResumoAtendimentos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton botaoVoltar;
-    private javax.swing.JButton filtrarAtendimentos;
+    private javax.swing.JButton buscarAtendimentos;
     private javax.swing.JTextField filtroBusca;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -206,5 +202,25 @@ public class ResumoAtendimentos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaAtendimentos;
-    // End of variables declaration                   
+    // End of variables declaration   
+    
+    
+    private void mostrarAtendimentos() {
+    	
+    	
+    	List<Atendimento> atendimentos = null;
+    	atendimentos = servico.buscarTodos();
+    	
+    	DefaultTableModel modeloTabela = (DefaultTableModel)tabelaAtendimentos.getModel();
+    	
+    	for(int i = 0; i < atendimentos.size(); i++) {
+    		modeloTabela.addRow(new String[modeloTabela.getColumnCount()]);
+    		tabelaAtendimentos.setValueAt(atendimentos.get(i).getAtendimentoId(), i, 0);
+    		tabelaAtendimentos.setValueAt(atendimentos.get(i).getCliente().getNome(), i, 1);
+    		tabelaAtendimentos.setValueAt(atendimentos.get(i).getProcedimento().getNome(), i, 2);
+    		tabelaAtendimentos.setValueAt(atendimentos.get(i).getFuncionario().getNome(), i, 3);
+    		tabelaAtendimentos.setValueAt(atendimentos.get(i).getData(), i, 4);
+    }
+}
+    
 }

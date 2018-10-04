@@ -194,6 +194,7 @@ public class AdicionarFuncionario extends javax.swing.JFrame {
 
     private void adicionarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {                                                     
     	adicionarFuncionario();
+    	new NotificarInsercao().setVisible(true);
     }                                                    
 
     /**

@@ -31,24 +31,13 @@ public class ConsultarFuncionario extends javax.swing.JFrame {
 		jPanel1 = new javax.swing.JPanel();
 		jLabel1 = new javax.swing.JLabel();
 		botaoVoltar = new javax.swing.JButton();
-		jLabel2 = new javax.swing.JLabel();
+		labelNome = new javax.swing.JLabel();
 		nomeFuncionario = new javax.swing.JTextField();
 		pesquisaFuncionario = new javax.swing.JButton();
 		pesquisaFuncionario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-				String nome = nomeFuncionario.getText();
-				List<Funcionario> funcionarios = null;
-				funcionarios = servico.buscaPorNome(nome);
-
-				DefaultTableModel modeloTabela = (DefaultTableModel) tabelaFuncionario.getModel();
-
-				for (int i = 0; i < funcionarios.size(); i++) {
-					modeloTabela.addRow(new String[modeloTabela.getColumnCount()]);
-					tabelaFuncionario.setValueAt(funcionarios.get(i).getNome(), i, 0);
-					tabelaFuncionario.setValueAt(funcionarios.get(i).getCelular(), i, 1);
-					tabelaFuncionario.setValueAt(funcionarios.get(i).getTelefone(), i, 2);
-				}
+				procurarFuncionarios();
+				
 			}
 		});
 		jScrollPane1 = new javax.swing.JScrollPane();
@@ -85,7 +74,7 @@ public class ConsultarFuncionario extends javax.swing.JFrame {
 				.addGroup(
 						jPanel1Layout.createSequentialGroup().addComponent(botaoVoltar).addGap(0, 0, Short.MAX_VALUE)));
 
-		jLabel2.setText("Nome");
+		labelNome.setText("Nome");
 
 		pesquisaFuncionario.setBackground(new java.awt.Color(255, 153, 153));
 		pesquisaFuncionario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -112,7 +101,7 @@ public class ConsultarFuncionario extends javax.swing.JFrame {
 										.addGap(0, 30, Short.MAX_VALUE))
 								.addGroup(layout.createSequentialGroup().addGroup(layout
 										.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-										.addComponent(jLabel2)
+										.addComponent(labelNome)
 										.addGroup(layout.createSequentialGroup()
 												.addComponent(nomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE,
 														245, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -125,7 +114,7 @@ public class ConsultarFuncionario extends javax.swing.JFrame {
 				.addGroup(layout.createSequentialGroup()
 						.addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
 								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addGap(35, 35, 35).addComponent(jLabel2)
+						.addGap(35, 35, 35).addComponent(labelNome)
 						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 						.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(nomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE,
@@ -190,11 +179,26 @@ public class ConsultarFuncionario extends javax.swing.JFrame {
 	// Variables declaration - do not modify
 	private javax.swing.JButton botaoVoltar;
 	private javax.swing.JLabel jLabel1;
-	private javax.swing.JLabel jLabel2;
+	private javax.swing.JLabel labelNome;
 	private javax.swing.JPanel jPanel1;
 	private javax.swing.JScrollPane jScrollPane1;
 	private javax.swing.JTable tabelaFuncionario;
 	private javax.swing.JTextField nomeFuncionario;
 	private javax.swing.JButton pesquisaFuncionario;
 	// End of variables declaration
+	
+	private void procurarFuncionarios() {
+		String nome = nomeFuncionario.getText();
+		List<Funcionario> funcionarios = null;
+		funcionarios = servico.buscaPorNome(nome);
+
+		DefaultTableModel modeloTabela = (DefaultTableModel) tabelaFuncionario.getModel();
+
+		for (int i = 0; i < funcionarios.size(); i++) {
+			modeloTabela.addRow(new String[modeloTabela.getColumnCount()]);
+			tabelaFuncionario.setValueAt(funcionarios.get(i).getNome(), i, 0);
+			tabelaFuncionario.setValueAt(funcionarios.get(i).getCelular(), i, 1);
+			tabelaFuncionario.setValueAt(funcionarios.get(i).getTelefone(), i, 2);
+		}
+	}
 }

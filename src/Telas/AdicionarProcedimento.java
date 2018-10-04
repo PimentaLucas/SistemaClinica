@@ -153,6 +153,7 @@ public class AdicionarProcedimento extends javax.swing.JFrame {
 
     private void adicionarProcedimentoActionPerformed(java.awt.event.ActionEvent evt) {                                                      
         adicionarProcedimento();
+        new NotificarInsercao().setVisible(true);
     }                                                     
 
     /**
