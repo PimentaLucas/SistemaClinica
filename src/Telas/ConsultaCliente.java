@@ -30,7 +30,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         botaoVoltar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        labelNome = new javax.swing.JLabel();
         buscaCliente = new javax.swing.JTextField();
         pesquisaCliente = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -76,7 +76,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jLabel2.setText("Nome");
+        labelNome.setText("Nome");
 
         pesquisaCliente.setBackground(new java.awt.Color(255, 153, 153));
         pesquisaCliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -114,7 +114,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
+                    .addComponent(labelNome)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(buscaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -126,7 +126,7 @@ public class ConsultaCliente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
+                .addComponent(labelNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buscaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -141,31 +141,8 @@ public class ConsultaCliente extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void pesquisaClienteActionPerformed(java.awt.event.ActionEvent evt) {                                                
-
-    	//Busca por CPF, utilizando por nome no momento
-//        	String busca = buscaCliente.getText();
-//        	Cliente c = new Cliente();
-//        	c = servico.buscaPorCPF(busca);
-//    		DefaultTableModel modeloTabela = (DefaultTableModel)tabelaCliente.getModel();
-//    		modeloTabela.addRow(new String[modeloTabela.getColumnCount()]);
-//    		tabelaCliente.setValueAt(c.getNome(), 0, 0);
-//        	tabelaCliente.setValueAt(c.getCelular(), 0, 1);
-//        	tabelaCliente.setValueAt(c.getTelefone(), 0, 2);
-       	
-        	
+    	pesquisaCliente();
     	
-    	String nome = buscaCliente.getText();
-    	List<Cliente> clientes = null;
-    	clientes = servico.buscaPorNome(nome);
-    	
-    	DefaultTableModel modeloTabela = (DefaultTableModel)tabelaCliente.getModel();
-    	
-    	for(int i = 0; i < clientes.size(); i++) {
-    		modeloTabela.addRow(new String[modeloTabela.getColumnCount()]);
-    		tabelaCliente.setValueAt(clientes.get(i).getNome(), i, 0);
-    		tabelaCliente.setValueAt(clientes.get(i).getCelular(), i, 1);
-    		tabelaCliente.setValueAt(clientes.get(i).getTelefone(), i, 2);
-    	}
  
     }                                               
 
@@ -213,11 +190,26 @@ public class ConsultaCliente extends javax.swing.JFrame {
     private javax.swing.JButton botaoVoltar;
     private javax.swing.JTextField buscaCliente;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel labelNome;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton pesquisaCliente;
     private javax.swing.JTable tabelaCliente;
-    // End of variables declaration                   
+    // End of variables declaration 
+    
+    private void pesquisaCliente() {
+    	String nome = buscaCliente.getText();
+    	List<Cliente> clientes = null;
+    	clientes = servico.buscaPorNome(nome);
+    	
+    	DefaultTableModel modeloTabela = (DefaultTableModel)tabelaCliente.getModel();
+    	
+    	for(int i = 0; i < clientes.size(); i++) {
+    		modeloTabela.addRow(new String[modeloTabela.getColumnCount()]);
+    		tabelaCliente.setValueAt(clientes.get(i).getNome(), i, 0);
+    		tabelaCliente.setValueAt(clientes.get(i).getCelular(), i, 1);
+    		tabelaCliente.setValueAt(clientes.get(i).getTelefone(), i, 2);
+    	}
+    }
 }
 

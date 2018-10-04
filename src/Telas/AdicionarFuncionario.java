@@ -32,17 +32,17 @@ public class AdicionarFuncionario extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        labelNome = new javax.swing.JLabel();
         nomeFuncionario = new JTextFieldLetras();
-        jLabel3 = new javax.swing.JLabel();
+        labelCPF = new javax.swing.JLabel();
         cpfFuncionario = new JTextFieldCPF();
-        jLabel4 = new javax.swing.JLabel();
+        labelEndereco = new javax.swing.JLabel();
         enderecoFuncionario = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        labelTelefone = new javax.swing.JLabel();
         telefoneFuncionario = new JTextFieldTelefone();
-        jLabel6 = new javax.swing.JLabel();
+        labelCelular = new javax.swing.JLabel();
         celularFuncionario = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        labelEmail = new javax.swing.JLabel();
         emailFuncionario = new javax.swing.JTextField();
         adicionarFuncionario = new javax.swing.JButton();
 
@@ -87,9 +87,9 @@ public class AdicionarFuncionario extends javax.swing.JFrame {
         );
         jPanel1.setLayout(jPanel1Layout);
 
-        jLabel2.setText("Nome");
+        labelNome.setText("Nome");
 
-        jLabel3.setText("CPF");
+        labelCPF.setText("CPF");
 
         cpfFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,11 +97,11 @@ public class AdicionarFuncionario extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Endereço");
+        labelEndereco.setText("Endereço");
 
-        jLabel5.setText("Telefone");
+        labelTelefone.setText("Telefone");
 
-        jLabel6.setText("Celular");
+        labelCelular.setText("Celular");
 
         celularFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,7 +109,7 @@ public class AdicionarFuncionario extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("E-mail");
+        labelEmail.setText("E-mail");
 
         adicionarFuncionario.setBackground(new java.awt.Color(255, 153, 153));
         adicionarFuncionario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -130,12 +130,12 @@ public class AdicionarFuncionario extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(emailFuncionario)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
+                    .addComponent(labelEmail)
+                    .addComponent(labelCelular)
+                    .addComponent(labelTelefone)
+                    .addComponent(labelEndereco)
+                    .addComponent(labelCPF)
+                    .addComponent(labelNome)
                     .addComponent(nomeFuncionario)
                     .addComponent(cpfFuncionario)
                     .addComponent(enderecoFuncionario)
@@ -152,27 +152,27 @@ public class AdicionarFuncionario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
+                .addComponent(labelNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nomeFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addComponent(labelCPF)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cpfFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
+                .addComponent(labelEndereco)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(enderecoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
+                .addComponent(labelTelefone)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(telefoneFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
+                .addComponent(labelCelular)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(celularFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
+                .addComponent(labelEmail)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(emailFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -193,24 +193,7 @@ public class AdicionarFuncionario extends javax.swing.JFrame {
     }                                                  
 
     private void adicionarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {                                                     
-    	String nome = nomeFuncionario.getText();
-        String celular = celularFuncionario.getText();
-        String telefone = telefoneFuncionario.getText();
-        String cpf = cpfFuncionario.getText();
-        String email = emailFuncionario.getText();
-        String endereco = enderecoFuncionario.getText();
-        if(servico.verificarCPF(cpf)) {
-            
-            servico.inserirFuncionario(servico.criarFuncionario(nome, cpf, telefone, celular, email, endereco));
-            
-            new TelaFuncionario().setVisible(true);
-            this.dispose();
-                
-           }
-           
-           else {
-           	new NotificarCPF().setVisible(true);
-           }
+    	adicionarFuncionario();
     }                                                    
 
     /**
@@ -255,16 +238,38 @@ public class AdicionarFuncionario extends javax.swing.JFrame {
     private javax.swing.JTextField emailFuncionario;
     private javax.swing.JTextField enderecoFuncionario;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel labelNome;
+    private javax.swing.JLabel labelCPF;
+    private javax.swing.JLabel labelEndereco;
+    private javax.swing.JLabel labelTelefone;
+    private javax.swing.JLabel labelCelular;
+    private javax.swing.JLabel labelEmail;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nomeFuncionario;
     private javax.swing.JTextField telefoneFuncionario;
     private JButton btnVoltar;
-    // End of variables declaration                   
+    // End of variables declaration        
+    
+    
+    private void adicionarFuncionario(){
+    	String nome = nomeFuncionario.getText();
+        String celular = celularFuncionario.getText();
+        String telefone = telefoneFuncionario.getText();
+        String cpf = cpfFuncionario.getText();
+        String email = emailFuncionario.getText();
+        String endereco = enderecoFuncionario.getText();
+        if(servico.verificarCPF(cpf)) {
+            
+            servico.inserirFuncionario(servico.criarFuncionario(nome, cpf, telefone, celular, email, endereco));
+            
+            new TelaFuncionario().setVisible(true);
+            this.dispose();
+                
+           }
+           
+           else {
+           	new NotificarCPF().setVisible(true);
+           }
+    }
 }
 

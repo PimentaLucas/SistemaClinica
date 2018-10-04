@@ -33,24 +33,13 @@ public class ConsultaProcedimento extends javax.swing.JFrame {
 		jPanel1 = new javax.swing.JPanel();
 		jLabel1 = new javax.swing.JLabel();
 		botaoVoltar = new javax.swing.JButton();
-		jLabel2 = new javax.swing.JLabel();
+		labelNome = new javax.swing.JLabel();
 		buscaProcedimento = new javax.swing.JTextField();
 		consultarProcedimento = new javax.swing.JButton();
 		consultarProcedimento.addActionListener(new ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-
-				String nome = buscaProcedimento.getText();
-				List<Procedimento> procedimentos = null;
-				procedimentos = servico.buscaPorNome(nome);
-
-				DefaultTableModel modeloTabela = (DefaultTableModel) tabelaProcedimento.getModel();
-
-				for (int i = 0; i < procedimentos.size(); i++) {
-					modeloTabela.addRow(new String[modeloTabela.getColumnCount()]);
-					tabelaProcedimento.setValueAt(procedimentos.get(i).getNome(), i, 0);
-					tabelaProcedimento.setValueAt(procedimentos.get(i).getValor(), i, 1);
-					
-				}
+				procurarAtendimentos();
+				
 			}
 		});
 		jScrollPane1 = new javax.swing.JScrollPane();
@@ -88,7 +77,7 @@ public class ConsultaProcedimento extends javax.swing.JFrame {
 				.addGroup(
 						jPanel1Layout.createSequentialGroup().addComponent(botaoVoltar).addGap(0, 0, Short.MAX_VALUE)));
 
-		jLabel2.setText("Nome");
+		labelNome.setText("Nome");
 
 		consultarProcedimento.setBackground(new java.awt.Color(255, 153, 153));
 		consultarProcedimento.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -115,7 +104,7 @@ public class ConsultaProcedimento extends javax.swing.JFrame {
 						.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 								.addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452,
 										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(jLabel2)
+								.addComponent(labelNome)
 								.addGroup(layout.createSequentialGroup()
 										.addComponent(buscaProcedimento, javax.swing.GroupLayout.PREFERRED_SIZE, 265,
 												javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -126,7 +115,7 @@ public class ConsultaProcedimento extends javax.swing.JFrame {
 				.addGroup(layout.createSequentialGroup()
 						.addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
 								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addGap(37, 37, 37).addComponent(jLabel2)
+						.addGap(37, 37, 37).addComponent(labelNome)
 						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 						.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(buscaProcedimento, javax.swing.GroupLayout.PREFERRED_SIZE,
@@ -193,9 +182,25 @@ public class ConsultaProcedimento extends javax.swing.JFrame {
 	private javax.swing.JTextField buscaProcedimento;
 	private javax.swing.JButton consultarProcedimento;
 	private javax.swing.JLabel jLabel1;
-	private javax.swing.JLabel jLabel2;
+	private javax.swing.JLabel labelNome;
 	private javax.swing.JPanel jPanel1;
 	private javax.swing.JScrollPane jScrollPane1;
 	private javax.swing.JTable tabelaProcedimento;
 	// End of variables declaration
+	
+	
+	private void procurarAtendimentos() {
+		String nome = buscaProcedimento.getText();
+		List<Procedimento> procedimentos = null;
+		procedimentos = servico.buscaPorNome(nome);
+
+		DefaultTableModel modeloTabela = (DefaultTableModel) tabelaProcedimento.getModel();
+
+		for (int i = 0; i < procedimentos.size(); i++) {
+			modeloTabela.addRow(new String[modeloTabela.getColumnCount()]);
+			tabelaProcedimento.setValueAt(procedimentos.get(i).getNome(), i, 0);
+			tabelaProcedimento.setValueAt(procedimentos.get(i).getValor(), i, 1);
+			
+		}
+	}
 }

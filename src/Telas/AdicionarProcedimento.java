@@ -30,9 +30,9 @@ public class AdicionarProcedimento extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        labelNome = new javax.swing.JLabel();
+        labelValor = new javax.swing.JLabel();
+        labelDescricao = new javax.swing.JLabel();
         nomeProcedimento = new JTextFieldLetras();
         valorProcedimento = new JTextFieldValor();
         descProcedimento = new JTextFieldLetras();
@@ -80,11 +80,11 @@ public class AdicionarProcedimento extends javax.swing.JFrame {
         );
         jPanel1.setLayout(jPanel1Layout);
 
-        jLabel2.setText("Nome");
+        labelNome.setText("Nome");
 
-        jLabel3.setText("Valor");
+        labelValor.setText("Valor");
 
-        jLabel4.setText("Descrição");
+        labelDescricao.setText("Descrição");
 
         descProcedimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,9 +110,9 @@ public class AdicionarProcedimento extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
+                    .addComponent(labelDescricao)
+                    .addComponent(labelValor)
+                    .addComponent(labelNome)
                     .addComponent(nomeProcedimento)
                     .addComponent(valorProcedimento)
                     .addComponent(descProcedimento, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE))
@@ -127,15 +127,15 @@ public class AdicionarProcedimento extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
-                .addComponent(jLabel2)
+                .addComponent(labelNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nomeProcedimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
-                .addComponent(jLabel3)
+                .addComponent(labelValor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(valorProcedimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
+                .addComponent(labelDescricao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(descProcedimento, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
@@ -152,14 +152,7 @@ public class AdicionarProcedimento extends javax.swing.JFrame {
     }                                                
 
     private void adicionarProcedimentoActionPerformed(java.awt.event.ActionEvent evt) {                                                      
-        String nome = nomeProcedimento.getText();
-        String valor = valorProcedimento.getText();
-        String descricao = descProcedimento.getText();
-        
-        servico.inserirProcedimento(servico.criarProcedimento(nome, valor, descricao));
-    	
-    	new TelaProcedimentos().setVisible(true);
-        this.dispose();
+        adicionarProcedimento();
     }                                                     
 
     /**
@@ -201,13 +194,24 @@ public class AdicionarProcedimento extends javax.swing.JFrame {
     private javax.swing.JButton adicionarProcedimento;
     private javax.swing.JTextField descProcedimento;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel labelNome;
+    private javax.swing.JLabel labelValor;
+    private javax.swing.JLabel labelDescricao;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nomeProcedimento;
     private javax.swing.JTextField valorProcedimento;
     private JButton btnVoltar;
-    // End of variables declaration                   
+    // End of variables declaration 
+    
+    private void adicionarProcedimento() {
+    	String nome = nomeProcedimento.getText();
+        String valor = valorProcedimento.getText();
+        String descricao = descProcedimento.getText();
+        
+        servico.inserirProcedimento(servico.criarProcedimento(nome, valor, descricao));
+    	
+    	new TelaProcedimentos().setVisible(true);
+        this.dispose();
+    }
 
 }
